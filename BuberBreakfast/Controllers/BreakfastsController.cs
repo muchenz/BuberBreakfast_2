@@ -30,7 +30,7 @@ public class BreakfastsController : ApiController
 
         var breakfast = requestToBreakfastResult.Value;
 
-        ErrorOr<Created> createdBreakfastResult = _breakfastService.CreateBreakfast(breakfast);
+        ErrorOr<Created> createdBreakfastResult = _breakfastService.CreateBreakfastAsync(breakfast);
 
         return createdBreakfastResult.Match(
             created => CreatedAsGetBreakfast(breakfast),

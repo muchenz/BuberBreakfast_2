@@ -8,19 +8,21 @@ public class Breakfast
 
 
     public const int MinNameLenght = 3;
-    public const int MaxNameLenght = 23;
+    public const int MaxNameLenght = 50;
 
     public const int MinDescriptionLenght = 3;
-    public const int MaxDescriptionLenght = 23;
+    public const int MaxDescriptionLenght = 50;
 
-    public Guid Id { get; }
-    public string Name { get; }
-    public string Description { get; }
-    public DateTime StartDateTime { get; }
-    public DateTime EndDateTime { get; }
-    public DateTime LastModifiedDateTime { get; }
-    public List<string> Savory { get; }
-    public List<string> Sweet { get; }
+    public Guid Id { get; private set; }
+    public string Name { get; private set; }
+    public string Description { get; private set; }
+    public DateTime StartDateTime { get; private set; }
+    public DateTime EndDateTime { get; private set; }
+    public DateTime LastModifiedDateTime { get; private set; }
+    public List<string> Savory { get; private set; }
+    public List<string> Sweet { get; private set; }
+
+    private Breakfast()  { }
 
 
     private Breakfast(Guid id,

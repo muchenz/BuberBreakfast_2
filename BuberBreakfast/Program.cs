@@ -1,5 +1,7 @@
 using BuberBreakfast.Mapping;
+using BuberBreakfast.Persistence;
 using BuberBreakfast.Services.Breakfasts;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -10,7 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     builder.Services.AddMappings();
-    builder.Services.AddSingleton<IBreakfastService, BreakfastService>();
+    builder.Services.AddScoped<IBreakfastService, BreakfastService>();
+    builder.Services.AddDbContext<BubberBreakfastDbContext>(options =>
+    options.UseSqlite("DataSource=BuberBreakfast.db"));
 
 }
 var app = builder.Build();
